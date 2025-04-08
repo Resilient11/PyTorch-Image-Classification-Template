@@ -1,0 +1,2 @@
+# PyTorch-Image-Classification-Template
+一个基于PyTorch和torchvision预训练模型的通用图像分类模板，支持快速实验多种主流CNN/ViT模型。
