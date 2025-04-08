@@ -16,7 +16,7 @@
     source venv/bin/activate  # 在 Windows 上使用 `venv\Scripts\activate`
     ```
 
-3. 安装依赖：
+3. 安装依赖（部分的）：
     ```bash
     pip install -r requirements.txt
     ```
@@ -24,8 +24,6 @@
 ## 项目总体文件结构
 ```
 PyTorch-Image-Classification-Template/
-├── README.md              # 项目介绍和基本使用说明
-├── LICENSE                # 许可证信息
 ├── config.py              # 模型配置文件
 ├── divide_dataset.py      # 数据集划分脚本
 ├── model_init.py          # 模型初始化文件
@@ -33,17 +31,11 @@ PyTorch-Image-Classification-Template/
 ├── requirements.txt       # 项目依赖文件
 ```
 
-### README.md
-包含项目的基本介绍和使用说明。
-
-### LICENSE
-包含项目的许可证信息，本项目基于 MIT 许可证开源。
-
 ### config.py
 用于配置模型训练的参数，包括数据集路径、模型选择、训练超参数等。
 
 ### divide_dataset.py
-用于将数据集划分为训练集和验证集，确保数据集按类别均匀分布。
+用于将数据集划分为训练集、验证集和测试集（按照8:1:1的比例），确保数据集按类别均匀分布。
 
 ### model_init.py
 用于初始化模型，从 torchvision 中加载预训练模型并进行相应的修改以适应新的分类任务。
@@ -55,15 +47,14 @@ PyTorch-Image-Classification-Template/
 请将你的图像数据集按照以下结构组织：
 ```
 dataset/
-    original/
-        class1/
-            img1.jpg
-            img2.jpg
-            ...
-        class2/
-            img1.jpg
-            img2.jpg
-            ...
+    class1/
+        img1.jpg
+        img2.jpg
+        ...
+    class2/
+        img1.jpg
+        img2.jpg
+        ...
 ```
 
 使用 `divide_dataset.py` 划分数据集：
@@ -73,7 +64,7 @@ python divide_dataset.py --data_dir path_to_your_dataset
 参数说明：
 - `--data_dir`：原始数据集路径
 
-运行上述命令后，数据集将被划分为训练集和验证集，结构如下：
+运行上述命令后，数据集将被划分为训练集、验证集和测试集，结构如下：
 ```
 dataset/
     train/
@@ -94,6 +85,16 @@ dataset/
             img1.jpg
             img2.jpg
             ...
+    test/
+        class1/
+            img1.jpg
+            img2.jpg
+            ...
+        class2/
+            img1.jpg
+            img2.jpg
+            ...
+    
 ```
 
 ## 模型配置（config.py）
@@ -143,6 +144,31 @@ python evaluate.py --model_path model.pth --data_dir path_to_your_dataset
 参数说明：
 - `--model_path`：训练好的模型文件路径
 - `--data_dir`：数据集路径
+
+## 训练结束后的项目文件结构
+训练结束后，项目的文件结构可能如下所示：
+```
+PyTorch-Image-Classification-Template/
+├── data/                          # 数据集
+│   ├── test    
+│   ├── train        
+│   ├── val
+├── output/                        # 输出目录
+│   ├── mobilenet_v3_large/        # 模型一
+|   │   ├── metrics.png            # 训练指标图像
+|   │   ├── mobilenet_v3_large_50epochs.pth              # 模型权重文件
+│   ├── shufflenet_v2_x1_0/        # 模型二
+|   │   ├── metrics.png            # 训练指标图像
+|   │   ├──shufflenet_v2_x1_0_50epochs.pth               # 模型权重文件
+├── README.md                      # 项目介绍和基本使用说明
+├── config.py                      # 模型配置文件
+├── divide_dataset.py              # 数据集划分脚本
+├── model_init.py                  # 模型初始化文件
+├── train.py                       # 模型训练脚本
+├── requirements.txt               # 项目依赖文件
+├── model.pth                      # 训练好的模型文件
+
+```
 
 ## 许可证
 本项目基于 MIT 许可证开源，详情请参考 [LICENSE](LICENSE) 文件。
