@@ -154,8 +154,8 @@ def train():
     evaluate(model, test_loader, criterion, desc="Test")
 
     # 保存precision/recall/F1图像
-    if not os.path.exists(f"./output/{config.OUTPUT_DIR}"):
-        os.makedirs(f"./output/{config.OUTPUT_DIR}")
+    if not os.path.exists(config.OUTPUT_DIR):
+        os.makedirs(config.OUTPUT_DIR)
 
     epochs = range(1, config.EPOCHS + 1)
     plt.figure(figsize=(10, 6))
