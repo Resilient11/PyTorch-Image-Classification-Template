@@ -168,7 +168,7 @@ def train():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig(os.path.join(config.OUTPUT_DIR, "metrics.png"))
+    plt.savefig(os.path.join(config.OUTPUT_DIR, f"metrics_{config.EPOCHS}epochs.png"))
     print("指标可视化已保存")
 
 
