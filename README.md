@@ -116,25 +116,19 @@ python train.py --config config.py
 ## 控制台输出及整体输出文件
 在训练过程中，控制台将输出训练的实时信息，包括训练损失、验证损失、准确率等。示例输出如下：
 ```
-Epoch 1/20
-----------
-Train Loss: 0.3456 Acc: 85.24%
-Val Loss: 0.4567 Acc: 82.13%
+训练标签类别: ['class1', 'class2', 'class3', 'class4', 'class5']
 
-Epoch 2/20
-----------
-Train Loss: 0.1234 Acc: 92.56%
-Val Loss: 0.2345 Acc: 89.45%
+[Train][Epoch 001] Acc: 84.52%
+[Val][Epoch 001] Acc: 93.86% | P: 0.938 | R: 0.939 | F1: 0.938
+最佳模型已保存（准确率: 93.86%）
+
+[Train][Epoch 002] Acc: 94.12%
+[Val][Epoch 002] Acc: 95.64% | P: 0.956 | R: 0.956 | F1: 0.956
+最佳模型已保存（准确率: 95.64%）
 ...
 ```
 
-训练结束后，模型将被保存到指定的路径，默认保存为 `model.pth` 文件。你可以使用 `evaluate.py` 文件对模型进行评估，命令如下：
-```bash
-python evaluate.py --model_path model.pth --data_dir path_to_your_dataset
-```
-参数说明：
-- `--model_path`：训练好的模型文件路径
-- `--data_dir`：数据集路径
+训练结束后，模型将被保存到指定的路径，默认保存至`output`文件夹下。
 
 ## 训练结束后的项目文件结构
 训练结束后，项目的文件结构可能如下所示：
