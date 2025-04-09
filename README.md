@@ -101,18 +101,9 @@ dataset/
 在 `config.py` 文件中，你可以配置模型训练的参数，包括但不限于：
 - 数据集路径
 - 模型名称（如 resnet50, vgg16, vit_b_16 等）
-- 批处理大小（batch size）
-- 训练轮数（epochs）
-- 学习率（learning rate）
-
-例如：
-```python
-data_dir = "path_to_your_dataset"
-model_name = "resnet50"
-batch_size = 32
-epochs = 20
-learning_rate = 0.001
-```
+- 批处理大小（BATCH_SIZE）
+- 训练轮数（EPOCHS）
+- 学习率（INIT_LR）
 
 ## 开始训练
 在终端运行以下命令开始训练：
