@@ -25,7 +25,7 @@ PyTorch-Image-Classification-Template/
 ### train.py
 项目的核心训练脚本，包含了数据加载、模型训练、验证和保存的全过程。
 
-###requirements.txt
+### requirements.txt
  可以使用命令`pip install -r requirements.txt`安装项目所需依赖。
 
 ## 数据集准备及使用 divide_dataset.py 划分数据集
