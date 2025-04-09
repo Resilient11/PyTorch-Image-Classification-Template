@@ -3,24 +3,6 @@
 ## 项目介绍
 `PyTorch-Image-Classification-Template` 是一个基于 PyTorch 和 torchvision 预训练模型的通用图像分类模板，支持快速实验多种主流 CNN/ViT 模型。
 
-## 环境搭建
-1. 克隆仓库到本地：
-    ```bash
-    git clone https://github.com/Resilient11/PyTorch-Image-Classification-Template.git
-    cd PyTorch-Image-Classification-Template
-    ```
-
-2. 创建并激活虚拟环境（可选）：
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # 在 Windows 上使用 `venv\Scripts\activate`
-    ```
-
-3. 安装依赖（部分的）：
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 ## 项目总体文件结构
 ```
 PyTorch-Image-Classification-Template/
@@ -42,6 +24,9 @@ PyTorch-Image-Classification-Template/
 
 ### train.py
 项目的核心训练脚本，包含了数据加载、模型训练、验证和保存的全过程。
+
+###requirements.txt
+ 可以使用命令`pip install -r requirements.txt`安装项目所需依赖。
 
 ## 数据集准备及使用 divide_dataset.py 划分数据集
 请将你的图像数据集按照以下结构组织：
